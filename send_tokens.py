@@ -14,7 +14,8 @@ headers = {
 
 acl = algod.AlgodClient(algod_token, algod_address, headers)
 min_balance = 100000 #https://developer.algorand.org/docs/features/accounts/#minimum-balance
-
+#Private key: Jo1VzgASXoDFfcP9mGk6aeZqnQioAb/BgS3YNGhjPbc8UEgOTLER2NYU7SLz8Kh8N0F211kzZdX3G9ipk13bZg==
+#Address: HRIEQDSMWEI5RVQU5URPH4FIPQ3UC5WXLEZWLVPXDPMKTE253NTOZLVVUI
 def send_tokens( receiver_pk, tx_amount ):
     params = acl.suggested_params()
     gen_hash = params.gh
@@ -24,7 +25,25 @@ def send_tokens( receiver_pk, tx_amount ):
 
     #Your code here
 
-    return sender_pk, txid
+    # Define the sender and recipient addresses
+    sender_private_key = Jo1VzgASXoDFfcP9mGk6aeZqnQioAb/BgS3YNGhjPbc8UEgOTLER2NYU7SLz8Kh8N0F211kzZdX3G9ipk13bZg==
+    sender_address = HRIEQDSMWEI5RVQU5URPH4FIPQ3UC5WXLEZWLVPXDPMKTE253NTOZLVVUI
+    recipient_address = receiver_pk
+    # Create the payment transaction
+    payment_txn = transaction.PaymentTxn(
+        sender_address=sender_address,
+        sp=params,
+        receiver=recipient_address,
+        amt=tx_amount,  # Amount in microalgos (1 ALGO = 1,000,000 microalgos)
+    )
+
+    # Sign the transaction with the sender's private key
+    signed_txn = payment_txn.sign(sender_private_key)
+
+    # Send the signed transaction to the blockchain
+    tx_id = algod_client.send_transaction(signed_txn)
+    print("Transaction ID:", tx_id)
+    return sender_address, txid
 
 # Function from Algorand Inc.
 def wait_for_confirmation(client, txid):
