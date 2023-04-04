@@ -30,7 +30,7 @@ def send_tokens( receiver_pk, tx_amount ):
     sender_address = 'HRIEQDSMWEI5RVQU5URPH4FIPQ3UC5WXLEZWLVPXDPMKTE253NTOZLVVUI'
     recipient_address = receiver_pk
     payment_txn = transaction.PaymentTxn(
-        sender_address=sender_address,
+        sender=sender_address,
         sp=params,
         receiver=recipient_address,
         amt=tx_amount,  # Amount in microalgos (1 ALGO = 1,000,000 microalgos)
