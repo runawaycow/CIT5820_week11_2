@@ -29,6 +29,7 @@ def send_tokens( receiver_pk, tx_amount ):
     sender_private_key = 'Jo1VzgASXoDFfcP9mGk6aeZqnQioAb/BgS3YNGhjPbc8UEgOTLER2NYU7SLz8Kh8N0F211kzZdX3G9ipk13bZg=='
     sender_address = 'HRIEQDSMWEI5RVQU5URPH4FIPQ3UC5WXLEZWLVPXDPMKTE253NTOZLVVUI'
     recipient_address = receiver_pk
+    txid=None
     # Create the payment transaction
     payment_txn = transaction.PaymentTxn(
         sender_address=sender_address,
