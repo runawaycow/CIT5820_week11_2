@@ -43,7 +43,7 @@ def send_tokens( receiver_pk, tx_amount ):
     print(signed_txn )
     # Send the signed transaction to the blockchain
     txid = 'sss'
-    txid = algod.send_transaction(signed_txn)
+    txid = acl.send_transaction(signed_txn)
     #txid = 'sss'
     return sender_address , txid
 
