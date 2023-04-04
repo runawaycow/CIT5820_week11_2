@@ -11,7 +11,7 @@ algod_token = "B3SU4KcVKi94Jap2VXkK83xx38bsv95K5UZm2lab"
 headers = {
    "X-API-Key": algod_token,
 }
-
+print('here')
 acl = algod.AlgodClient(algod_token, algod_address, headers)
 min_balance = 100000 #https://developer.algorand.org/docs/features/accounts/#minimum-balance
 #Private key: Jo1VzgASXoDFfcP9mGk6aeZqnQioAb/BgS3YNGhjPbc8UEgOTLER2NYU7SLz8Kh8N0F211kzZdX3G9ipk13bZg==
