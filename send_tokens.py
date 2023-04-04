@@ -31,7 +31,7 @@ def send_tokens( receiver_pk, tx_amount ):
     recipient_address = receiver_pk
     payment_txn = transaction.PaymentTxn(
         sender=sender_address,
-        sp=params,
+        sp = acl.suggested_params(),
         receiver=recipient_address,
         amt=tx_amount,  # Amount in microalgos (1 ALGO = 1,000,000 microalgos)
     )
