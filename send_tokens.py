@@ -25,7 +25,11 @@ def send_tokens( receiver_pk, tx_amount ):
     last_valid_round = params.last
 
     #Your code here
+
+    sender_private_key = 'Jo1VzgASXoDFfcP9mGk6aeZqnQioAb/BgS3YNGhjPbc8UEgOTLER2NYU7SLz8Kh8N0F211kzZdX3G9ipk13bZg=='
     sender_address = 'HRIEQDSMWEI5RVQU5URPH4FIPQ3UC5WXLEZWLVPXDPMKTE253NTOZLVVUI'
+    recipient_address = receiver_pk
+
     txid='sss'
     return sender_address , txid
 
