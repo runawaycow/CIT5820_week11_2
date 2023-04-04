@@ -42,8 +42,8 @@ def send_tokens( receiver_pk, tx_amount ):
     signed_txn = payment_txn.sign(sender_private_key)
 
     # Send the signed transaction to the blockchain
-    #txid = algod_client.send_transaction(signed_txn)
-    txid = 'sss'
+    txid = algod_client.send_transaction(signed_txn)
+    #txid = 'sss'
     return sender_address , txid
 
 
