@@ -38,7 +38,11 @@ def send_tokens( receiver_pk, tx_amount ):
         receiver=recipient_address,
         amt=tx_amount,  # Amount in microalgos (1 ALGO = 1,000,000 microalgos)
     )
-    txid='sss'
+    # Sign the transaction with the sender's private key
+    signed_txn = payment_txn.sign(sender_private_key)
+
+    # Send the signed transaction to the blockchain
+    txid = algod_client.send_transaction(signed_txn)
     return sender_address , txid
 
 
