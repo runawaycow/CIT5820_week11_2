@@ -11,12 +11,12 @@ algod_token = "B3SU4KcVKi94Jap2VXkK83xx38bsv95K5UZm2lab"
 headers = {
    "X-API-Key": algod_token,
 }
-print('here')
+
 acl = algod.AlgodClient(algod_token, algod_address, headers)
 min_balance = 100000 #https://developer.algorand.org/docs/features/accounts/#minimum-balance
 #Private key: Jo1VzgASXoDFfcP9mGk6aeZqnQioAb/BgS3YNGhjPbc8UEgOTLER2NYU7SLz8Kh8N0F211kzZdX3G9ipk13bZg==
 #Address: HRIEQDSMWEI5RVQU5URPH4FIPQ3UC5WXLEZWLVPXDPMKTE253NTOZLVVUI
-print('here 2')
+
 def send_tokens( receiver_pk, tx_amount ):
     params = acl.suggested_params()
     gen_hash = params.gh
@@ -29,7 +29,12 @@ def send_tokens( receiver_pk, tx_amount ):
     sender_private_key = 'Jo1VzgASXoDFfcP9mGk6aeZqnQioAb/BgS3YNGhjPbc8UEgOTLER2NYU7SLz8Kh8N0F211kzZdX3G9ipk13bZg=='
     sender_address = 'HRIEQDSMWEI5RVQU5URPH4FIPQ3UC5WXLEZWLVPXDPMKTE253NTOZLVVUI'
     recipient_address = receiver_pk
-
+    payment_txn = transaction.PaymentTxn(
+        sender_address=sender_address,
+        sp=params,
+        receiver=recipient_address,
+        amt=tx_amount,  # Amount in microalgos (1 ALGO = 1,000,000 microalgos)
+    )
     txid='sss'
     return sender_address , txid
 
