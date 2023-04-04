@@ -25,10 +25,13 @@ def send_tokens( receiver_pk, tx_amount ):
     last_valid_round = params.last
 
     #Your code here
-    
-    return sender_address = 'HRIEQDSMWEI5RVQU5URPH4FIPQ3UC5WXLEZWLVPXDPMKTE253NTOZLVVUI', txid='sss'
+    sender_address = 'HRIEQDSMWEI5RVQU5URPH4FIPQ3UC5WXLEZWLVPXDPMKTE253NTOZLVVUI'
+    txid='sss'
+    return sender_address , txid
+
 
 # Function from Algorand Inc.
+
 def wait_for_confirmation(client, txid):
     """
     Utility function to wait until the transaction is
